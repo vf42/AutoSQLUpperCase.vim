@@ -43,7 +43,7 @@ let s:SQLKeywords = [
         \ 'DLURLPATHONLY', 'DLURLPATHWRITE', 'DLURLSCHEME', 'DLURLSERVER',
         \ 'DLVALUE', 'DO', 'DOCUMENT', 'DOMAIN', 'DOUBLE', 'DROP', 'DYNAMIC',
         \ 'DYNAMIC_FUNCTION', 'DYNAMIC_FUNCTION_CODE', 'EACH', 'ELEMENT', 'ELSE',
-        \ 'EMPTY', 'ENABLE', 'ENCODING', 'ENCRYPTED', 'END', 'END-EXEC',
+        \ 'EMPTY', 'ENABLE', 'ENCODING', 'ENCRYPTED', 'END',
         \ 'END_FRAME', 'END_PARTITION', 'ENFORCED', 'ENUM', 'EQUALS', 'ESCAPE',
         \ 'EVERY', 'EXCEPT', 'EXCEPTION', 'EXCLUDE', 'EXCLUDING', 'EXCLUSIVE',
         \ 'EXEC', 'EXECUTE', 'EXISTS', 'EXP', 'EXPLAIN', 'EXPRESSION',
@@ -143,6 +143,7 @@ fun! s:SetSQLinoreabbrev(SQLList) abort
   " map(map(a:SQLList, 'toupper(v:val)'), '"inoreabbrev <buffer> " . a:SQLList . v:val')
   for SQL in a:SQLList
     exec "inoreabbrev <buffer> " . tolower(SQL) . " " SQL
+    " exec "call abbrev('" . tolower(SQL) . "', '" . SQL . "', 'ignore')"
   endfor
 endfun
 
